@@ -8,12 +8,14 @@ Herdr 앱과 Discord(Vencord)를 같은 네뷸라 배경, 보라 포인트, Mono
 | 경로 | 내용 |
 |---|---|
 | `herdr/layouts/main-nebula.json` | Herdr 레이아웃. 기본 `main`(0.1.16)을 복제해 창 전체에 배경 이미지를 `cover`로 깔고 터미널 배경을 투명(`terminal_opacity: 0`)하게 둠 |
+| `herdr/layouts/main-nebula-glass.json` | macOS 반투명 레이아웃. 작업 영역뿐 아니라 왼쪽 사이드바와 상단 탭바도 바탕화면을 비춤 |
 | `herdr/backgrounds/nebula-1536x1024.png` | 배경 이미지 원본 |
 | `herdr/themes/dracula.json` | Herdr 색 테마(Herdr에 이미 있으면 건드리지 않음) |
 | `herdr/settings.theme.json` | Herdr `settings.json`에 합칠 항목: 서체, 크기, dark, dracula |
 | `discord/theme.src.css` | Discord 테마 원본. 배경 자리는 `__NEBULA_BG_DATA_URI__` |
 | `discord/nebula-bg.jpg` | Discord용 배경(원본 PNG를 JPEG로 줄인 것) |
 | `discord/nowaywork.theme.css` | 실제로 넣는 완성본(배경이 data URI로 들어 있음). 파일 이름은 처음 만들 때 이름을 그대로 씀 |
+| `discord/nebula-glass.quick.css` | macOS용 Vencord QuickCSS. 글꼴과 포인트 색은 유지하고 정적 이미지를 반투명 남색으로 바꿈 |
 | `scripts/apply.py` | 적용 스크립트(파이썬 표준 라이브러리만 사용) |
 | `scripts/build_discord_theme.py` | `theme.src.css` + `nebula-bg.jpg` → `nowaywork.theme.css` |
 
@@ -34,6 +36,22 @@ Discord 테마 요약: 배경은 네뷸라 이미지 위에 검정 30%, 포인�
   - Linux `~/.config/Vencord`(`XDG_CONFIG_HOME` 반영)
   - Windows `%APPDATA%\Vencord`
   - Vesktop은 폴더 구조가 다르므로 이 스크립트 대상이 아닙니다.
+
+## macOS 반투명 프리셋
+
+현재 MacBook과 같은 반투명 설정을 쓰려면 아래 적용 절차의 명령에 `--glass`를 붙입니다. Herdr는 0.1.17에서 확인했습니다.
+
+```sh
+python3 scripts/apply.py --glass --dry-run
+python3 scripts/apply.py --glass --only herdr
+# Discord를 Cmd+Q로 완전히 종료한 뒤 실행하고 다시 엽니다.
+python3 scripts/apply.py --glass --only discord
+```
+
+- Herdr는 `main-nebula-glass`로 전환합니다. 원래 `main-nebula` 레이아웃도 함께 설치됩니다.
+- Discord는 기존 NOWAYWORK 테마를 유지하고, QuickCSS에 이 저장소가 관리하는 블록만 추가합니다. 개인 QuickCSS는 보존합니다.
+- 움직이는 바탕화면은 별도입니다. 이 스크립트는 Wallnetic을 설치하거나 영상을 다운로드하지 않습니다. 원한다면 Wallnetic에서 Looksets의 **Cosmic Purple Nebula** MP4를 설정합니다. Discord에서 영상 움직임이 창을 통해 보이는지는 확인하지 않았습니다.
+- 정적 배경으로 돌아가려면 `--glass` 없이 다시 실행합니다. Herdr는 `main-nebula`로 돌아가고, Discord는 관리 블록만 제거합니다.
 
 ## AI 에이전트 적용 절차
 
@@ -57,7 +75,7 @@ Discord 테마 요약: 배경은 네뷸라 이미지 위에 검정 30%, 포인�
 
 ## 운영체제별 차이
 
-- macOS: Vencord `transparent: true`, `macosVibrancyStyle: fullscreen-ui`(원래 맥북과 같은 값). 배경 이미지가 창을 덮으므로 블러는 사실상 보이지 않습니다. 시험해 본 재질 중 `sidebar`, `hud`는 탁한 회색, `under-page`, `window`는 불투명해서 쓰지 않습니다.
+- macOS: Vencord `transparent: true`, `macosVibrancyStyle: fullscreen-ui`(원래 맥북과 같은 값). 기본 정적 프리셋에서는 배경 이미지가 창을 덮으므로 블러는 사실상 보이지 않습니다. 시험해 본 재질 중 `sidebar`, `hud`는 탁한 회색, `under-page`, `window`는 불투명해서 쓰지 않습니다.
 - Windows, Linux: `transparent: true`만 설정합니다. 배경 이미지가 창을 덮으므로 결과는 같습니다. Windows 블러(`windowsMaterial`)는 설정하지 않습니다.
 
 ## 수정하는 법

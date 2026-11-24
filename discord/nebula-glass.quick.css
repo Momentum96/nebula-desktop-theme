@@ -1,0 +1,6 @@
+/* Let the macOS wallpaper show through NOWAYWORK's dark canvas. */
+html.theme-dark #app-mount,
+html.theme-darker #app-mount,
+html.theme-midnight #app-mount {
+  background: rgba(11, 16, 36, 0.4) !important;
+}
