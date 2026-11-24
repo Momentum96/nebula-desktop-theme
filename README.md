@@ -1,6 +1,6 @@
 # nebula-desktop-theme
 
-Herdr 앱과 Discord(Vencord)를 같은 네뷸라 배경, 보라 포인트, Monoplex KR Nerd 서체로 맞추는 개인 테마입니다.
+Herdr 앱과 Discord(Vencord)를 같은 네뷸라 배경, 보라 포인트, Monoplex KR Nerd Font 서체로 맞추는 개인 테마입니다.
 다른 PC에서는 아래 "AI 에이전트 적용 절차"를 에이전트에게 그대로 시키면 됩니다.
 
 ## 들어 있는 것
@@ -17,13 +17,13 @@ Herdr 앱과 Discord(Vencord)를 같은 네뷸라 배경, 보라 포인트, Mono
 | `scripts/apply.py` | 적용 스크립트(파이썬 표준 라이브러리만 사용) |
 | `scripts/build_discord_theme.py` | `theme.src.css` + `nebula-bg.jpg` → `nowaywork.theme.css` |
 
-Discord 테마 요약: 배경은 네뷸라 이미지 위에 검정 30%, 포인트는 보라 `#A97BFF`(호버 `#BC97FF`, 누름 `#9161F0`, 버튼 글자 흰색), 상태색(온라인, 성공)은 초록 `#57D98B`, 경고 `#FFD75D`, 오류 `#FF5D5D`, 서체는 전부 Monoplex KR Nerd, 글자에 옅은 그림자.
+Discord 테마 요약: 배경은 네뷸라 이미지 위에 검정 30%, 포인트는 보라 `#A97BFF`(호버 `#BC97FF`, 누름 `#9161F0`, 버튼 글자 흰색), 상태색(온라인, 성공)은 초록 `#57D98B`, 경고 `#FFD75D`, 오류 `#FF5D5D`, 서체는 전부 Monoplex KR Nerd Font, 글자에 옅은 그림자.
 
 ## 사전 조건
 
 - Python 3.9 이상
-- 서체 **Monoplex KR Nerd**: https://github.com/y-kim/monoplex 릴리스 `monoplex-kr-nerd-font-1.3.0`(Latest인 CJK판이 아님)의 `MonoplexKRNerdFont_v1.3.0.zip` 안에 있는 `MonoplexKRNerdFont-*.ttf`를 설치합니다.
-  - 패밀리 이름 주의: 1.3.0의 패밀리 이름은 `Monoplex KR Nerd Font`입니다. 원래 맥북에 깔린 예전 버전은 `Monoplex KR Nerd`입니다. Discord 테마는 둘 다 지정해 두었지만, Herdr는 이름 하나만 받으므로 설치된 이름을 `--font`로 넘깁니다(아래 절차 4).
+- 서체 **Monoplex KR Nerd Font**: https://github.com/y-kim/monoplex 릴리스 `monoplex-kr-nerd-font-1.3.0`(Latest인 CJK판이 아님)의 `MonoplexKRNerdFont_v1.3.0.zip` 안에 있는 `MonoplexKRNerdFont-*.ttf`를 설치합니다.
+  - 패밀리 이름은 `Monoplex KR Nerd Font`입니다. 예전 버전(0.0.x, 패밀리 `Monoplex KR Nerd`)이 깔려 있으면 지우고, 그 이름을 쓰는 다른 앱 설정도 새 이름으로 바꿉니다.
   - macOS: `~/Library/Fonts/`에 복사
   - Linux: `~/.local/share/fonts/`에 복사 후 `fc-cache -f`
   - Windows: 각 ttf를 "모든 사용자용으로 설치" 또는 `%LOCALAPPDATA%\Microsoft\Windows\Fonts`에 설치
@@ -43,8 +43,7 @@ Discord 테마 요약: 배경은 네뷸라 이미지 위에 검정 30%, 포인�
 2. 서체가 설치되어 있는지 확인하고, 없으면 위 "사전 조건"대로 설치합니다.
 3. 바꿀 내용을 먼저 확인합니다: `python3 scripts/apply.py --dry-run`
    - Herdr나 Vencord 폴더를 못 찾으면 여기서 멈추고 사람에게 알립니다.
-4. Herdr 적용: `python3 scripts/apply.py --only herdr --font "<설치된 패밀리 이름>"`
-   - 2단계에서 확인한 이름을 넣습니다(1.3.0이면 `Monoplex KR Nerd Font`). 예전 버전(`Monoplex KR Nerd`)이면 `--font`를 빼도 됩니다.
+4. Herdr 적용: `python3 scripts/apply.py --only herdr`
    - 레이아웃, 배경, 설정은 Herdr가 바로 다시 읽습니다(재시작 불필요).
    - `herdr-app`가 PATH에 있으면 스크립트가 `herdr-app do layout.switch '{"name":"main-nebula"}'`로 레이아웃을 바꿉니다. 없으면 앱에서 `ctrl-shift-l`로 `main-nebula`를 고르라고 사람에게 안내합니다.
    - 확인: `herdr-app shot herdr.png`로 창을 캡처해 배경 이미지가 보이는지 봅니다(화면 녹화 권한 불필요).

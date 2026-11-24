@@ -66,7 +66,7 @@ def vencord_home() -> Path:
     return Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config")) / "Vencord"
 
 
-def apply_herdr(a: Applier, font: str | None) -> None:
+def apply_herdr(a: Applier) -> None:
     home = herdr_home()
     if not home.is_dir():
         raise SystemExit(f"Herdr home not found: {home} (start Herdr once, or set HERDR_APP_HOME)")
@@ -79,8 +79,6 @@ def apply_herdr(a: Applier, font: str | None) -> None:
     else:
         a.copy(src / "themes" / "dracula.json", theme)
     wanted = json.loads((src / "settings.theme.json").read_text(encoding="utf-8"))
-    if font:
-        wanted["font"] = wanted["ui_font"] = font
     a.merge_json(home / "settings.json", lambda d: d.update(wanted))
 
     cli = shutil.which("herdr-app")
@@ -119,11 +117,10 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Apply the nebula Herdr layout and Discord (Vencord) theme.")
     parser.add_argument("--only", choices=["herdr", "discord"], help="apply one part only")
     parser.add_argument("--dry-run", action="store_true", help="print what would change, write nothing")
-    parser.add_argument("--font", help="Herdr font family to use instead of settings.theme.json's")
     args = parser.parse_args()
     a = Applier(args.dry_run)
     if args.only in (None, "herdr"):
-        apply_herdr(a, args.font)
+        apply_herdr(a)
     if args.only in (None, "discord"):
         apply_discord(a)
 

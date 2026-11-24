@@ -1,12 +1,12 @@
 /**
  * @name NOWAYWORK
  * @author gwjeon
- * @description NOWAYWORK 다크 + Herdr 네뷸라 배경, 보라 포인트, Monoplex KR Nerd.
+ * @description NOWAYWORK 다크 + Herdr 네뷸라 배경, 보라 포인트, Monoplex KR Nerd Font.
  * @version 1.0.0
  */
 
 :root:root {
-  --nww-font: "Monoplex KR Nerd", "Monoplex KR Nerd Font", "IBM Plex Sans KR", "Apple SD Gothic Neo", Menlo, monospace;
+  --nww-font: "Monoplex KR Nerd Font", "IBM Plex Sans KR", "Apple SD Gothic Neo", Menlo, monospace;
   --font-primary: var(--nww-font);
   --font-display: var(--nww-font);
   --font-headline: var(--nww-font);
