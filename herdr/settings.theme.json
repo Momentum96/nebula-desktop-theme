@@ -1,0 +1,8 @@
+{
+  "font": "Monoplex KR Nerd",
+  "ui_font": "Monoplex KR Nerd",
+  "font_size": 14,
+  "font_ligatures": false,
+  "appearance": "dark",
+  "theme": "dracula"
+}

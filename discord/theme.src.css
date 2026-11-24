@@ -1,0 +1,195 @@
+/**
+ * @name NOWAYWORK
+ * @author gwjeon
+ * @description NOWAYWORK 다크 + Herdr 네뷸라 배경, 보라 포인트, Monoplex KR Nerd.
+ * @version 1.0.0
+ */
+
+:root:root {
+  --nww-font: "Monoplex KR Nerd", "Monoplex KR Nerd Font", "IBM Plex Sans KR", "Apple SD Gothic Neo", Menlo, monospace;
+  --font-primary: var(--nww-font);
+  --font-display: var(--nww-font);
+  --font-headline: var(--nww-font);
+  --font-code: var(--nww-font);
+}
+
+.theme-dark.theme-dark,
+.theme-darker.theme-darker,
+.theme-midnight.theme-midnight {
+  --nww-bg-0: #050505;
+  --nww-bg-1: #0A0A0A;
+  --nww-bg-2: #101010;
+  --nww-bg-3: #161616;
+  --nww-fg-1: #E6E6E6;
+  --nww-fg-2: #A8A8A8;
+  --nww-fg-3: #7D7D7D;
+  --nww-line-1: rgba(230, 230, 230, 0.09);
+  --nww-line-2: rgba(230, 230, 230, 0.18);
+  --nww-accent: #A97BFF;
+  --nww-accent-ink: #FFFFFF;
+  --nww-accent-wash: rgba(169, 123, 255, 0.10);
+  --nww-accent-glow: rgba(169, 123, 255, 0.42);
+  --nww-warn: #FFD75D;
+  --nww-err: #FF5D5D;
+
+  --nww-glass: rgba(5, 5, 5, 0.3);
+  --nww-tint-1: rgba(230, 230, 230, 0.02);
+  --nww-tint-2: rgba(230, 230, 230, 0.04);
+  --nww-float: rgba(16, 16, 16, 0.92);
+
+  --app-frame-background: transparent;
+  --background-base-lowest: transparent;
+  --background-base-lower: var(--nww-tint-1);
+  --background-base-low: var(--nww-tint-1);
+  --background-surface-high: var(--nww-float);
+  --background-surface-higher: var(--nww-float);
+  --background-surface-highest: rgba(22, 22, 22, 0.94);
+  --chat-background: transparent;
+  --chat-background-default: transparent;
+  --panel-bg: var(--nww-tint-1);
+  --modal-background: var(--nww-float);
+  --card-background-default: var(--nww-tint-2);
+  --channeltextarea-background: var(--nww-tint-2);
+  --input-background-default: rgba(5, 5, 5, 0.5);
+  --background-mod-subtle: rgba(230, 230, 230, 0.04);
+  --background-mod-muted: rgba(230, 230, 230, 0.06);
+  --background-mod-normal: rgba(230, 230, 230, 0.09);
+  --background-mod-strong: rgba(230, 230, 230, 0.14);
+
+  --text-strong: var(--nww-fg-1);
+  --text-default: var(--nww-fg-1);
+  --text-subtle: #C8C8C8;
+  --text-muted: var(--nww-fg-2);
+  --text-link: var(--nww-accent);
+  --text-brand: var(--nww-accent);
+  --channels-default: var(--nww-fg-2);
+  --channel-icon: var(--nww-fg-2);
+  --channel-text-area-placeholder: var(--nww-fg-2);
+
+  --interactive-text-default: #C8C8C8;
+  --interactive-text-hover: var(--nww-fg-1);
+  --interactive-text-active: var(--nww-fg-1);
+  --interactive-icon-default: #C8C8C8;
+  --interactive-icon-hover: var(--nww-fg-1);
+  --interactive-icon-active: var(--nww-accent);
+  --interactive-muted: #3A3A3A;
+  --interactive-background-hover: rgba(230, 230, 230, 0.05);
+  --interactive-background-active: rgba(230, 230, 230, 0.09);
+  --interactive-background-selected: rgba(230, 230, 230, 0.09);
+
+  --border-subtle: var(--nww-line-1);
+  --border-muted: var(--nww-line-1);
+  --border-normal: var(--nww-line-2);
+  --border-strong: var(--nww-line-2);
+  --border-focus: var(--nww-accent);
+
+  --control-brand-foreground: var(--nww-accent);
+  --control-brand-foreground-new: var(--nww-accent);
+  --control-primary-background-default: var(--nww-accent);
+  --control-primary-background-hover: #BC97FF;
+  --control-primary-background-active: #9161F0;
+  --control-primary-border-default: transparent;
+  --control-primary-border-hover: transparent;
+  --control-primary-border-active: transparent;
+  --control-primary-text-default: var(--nww-accent-ink);
+  --control-primary-text-hover: var(--nww-accent-ink);
+  --control-primary-text-active: var(--nww-accent-ink);
+  --control-primary-icon-default: var(--nww-accent-ink);
+  --control-primary-icon-hover: var(--nww-accent-ink);
+  --control-primary-icon-active: var(--nww-accent-ink);
+  --brand-500: var(--nww-accent);
+  --brand-560: #9161F0;
+  --brand-600: #9161F0;
+  --brand-360: var(--nww-accent);
+  --mention-foreground: var(--nww-accent);
+  --mention-background: var(--nww-accent-wash);
+  --background-mentioned: var(--nww-accent-wash);
+  --background-mentioned-hover: rgba(169, 123, 255, 0.14);
+  --info-warning-foreground: var(--nww-warn);
+
+  --status-positive: #57D98B;
+  --status-online: #57D98B;
+  --status-warning: var(--nww-warn);
+  --status-danger: var(--nww-err);
+  --text-feedback-positive: #57D98B;
+  --text-feedback-warning: var(--nww-warn);
+  --text-feedback-critical: var(--nww-err);
+
+  --scrollbar-thin-thumb: #2A2A2A;
+  --scrollbar-thin-track: transparent;
+  --scrollbar-auto-thumb: #2A2A2A;
+  --scrollbar-auto-track: transparent;
+}
+
+.theme-light.theme-light {
+  --nww-accent: #7C4DDB;
+  --app-frame-background: #E8E8E8;
+  --background-base-lowest: #E8E8E8;
+  --background-base-lower: #F2F2F2;
+  --background-base-low: #F2F2F2;
+  --background-surface-high: #FAFAFA;
+  --background-surface-higher: #FAFAFA;
+  --background-surface-highest: #FFFFFF;
+  --chat-background: #F2F2F2;
+  --chat-background-default: #F2F2F2;
+  --text-strong: #1A1A1A;
+  --text-default: #1A1A1A;
+  --text-link: #7C4DDB;
+  --text-brand: #7C4DDB;
+  --control-brand-foreground: #7C4DDB;
+  --control-primary-background-default: #7C4DDB;
+  --control-primary-background-hover: #6A3DC8;
+  --control-primary-background-active: #5A31B0;
+  --control-primary-text-default: #F2F2F2;
+  --brand-500: #7C4DDB;
+  --mention-foreground: #7C4DDB;
+  --mention-background: rgba(124, 77, 219, 0.12);
+  --background-mentioned: rgba(124, 77, 219, 0.10);
+  --status-positive: #1FBF1F;
+  --status-warning: #8F6B00;
+  --status-danger: #BF1F1F;
+}
+
+html.theme-dark,
+html.theme-dark body {
+  background: transparent !important;
+}
+
+html.theme-dark #app-mount {
+  background:
+    linear-gradient(var(--nww-glass), var(--nww-glass)),
+    var(--nww-bg-image) center / cover no-repeat !important;
+}
+
+.theme-dark #app-mount {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+}
+
+.theme-dark textarea,
+.theme-dark [contenteditable="true"],
+.theme-darker [contenteditable="true"],
+.theme-midnight [contenteditable="true"] {
+  caret-color: #A97BFF;
+}
+.theme-dark ::selection,
+.theme-darker ::selection,
+.theme-midnight ::selection {
+  background: rgba(169, 123, 255, 0.22);
+  color: #E6E6E6;
+}
+
+.theme-dark :focus-visible:not([contenteditable], textarea, input) {
+  outline-color: #A97BFF !important;
+  box-shadow: 0 0 0 1px #A97BFF, 0 0 12px rgba(169, 123, 255, 0.42);
+}
+
+.theme-dark code,
+.theme-darker code,
+.theme-midnight code {
+  background: #050505 !important;
+  border: 1px solid rgba(230, 230, 230, 0.09) !important;
+}
+
+:root {
+  --nww-bg-image: url("__NEBULA_BG_DATA_URI__");
+}
