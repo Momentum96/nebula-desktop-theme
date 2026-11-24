@@ -23,11 +23,11 @@ Discord 테마 요약: 배경은 네뷸라 이미지 위에 검정 30%, 포인�
 
 - Python 3.9 이상
 - 서체 **Monoplex KR Nerd Font**: https://github.com/y-kim/monoplex 릴리스 `monoplex-kr-nerd-font-1.3.0`(Latest인 CJK판이 아님)의 `MonoplexKRNerdFont_v1.3.0.zip` 안에 있는 `MonoplexKRNerdFont-*.ttf`를 설치합니다.
-  - 패밀리 이름은 `Monoplex KR Nerd Font`입니다. 예전 버전(0.0.x, 패밀리 `Monoplex KR Nerd`)이 깔려 있으면 지우고, 그 이름을 쓰는 다른 앱 설정도 새 이름으로 바꿉니다.
+  - 패밀리 이름은 `Monoplex KR Nerd Font`입니다. 예전 버전(0.0.x, 패밀리 `Monoplex KR Nerd`)이 깔려 있으면 지우고, 그 이름을 쓰는 다른 앱 설정도 새 이름으로 바꿉니다. macOS에서는 `~/.config` 말고도 `~/Library/Application Support/{Code,Cursor}/User/settings.json` 같은 곳에 예전 이름이 남기 쉽습니다.
   - macOS: `~/Library/Fonts/`에 복사
   - Linux: `~/.local/share/fonts/`에 복사 후 `fc-cache -f`
   - Windows: 각 ttf를 "모든 사용자용으로 설치" 또는 `%LOCALAPPDATA%\Microsoft\Windows\Fonts`에 설치
-  - 확인: macOS `system_profiler SPFontsDataType | grep "Family: Monoplex KR Nerd" | sort -u`, Linux `fc-list : family | grep "Monoplex KR Nerd" | sort -u`
+  - 확인: macOS `system_profiler SPFontsDataType | grep "Family: Monoplex KR Nerd Font" | sort -u`, Linux `fc-list : family | grep "Monoplex KR Nerd Font" | sort -u`
 - Herdr 앱: 한 번 실행해서 `~/.config/herdr-app`(또는 `HERDR_APP_HOME`)이 있어야 합니다.
 - Discord + Vencord: Vencord가 설치되어 있고 Discord를 한 번 실행했어야 합니다. 설정 폴더는
   - macOS `~/Library/Application Support/Vencord`
